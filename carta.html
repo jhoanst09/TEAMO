@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Amor</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: url('cursor_hello_kitty.png'), auto;
+            position: relative;
+        }
+
+        .carta {
+            max-width: 600px;
+            width: 90%;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .carta h1 {
+            font-size: 28px;
+            color: #8A2BE2;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .carta p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .carta button {
+            display: block;
+            width: 200px;
+            margin: 30px auto 0;
+            padding: 12px 20px;
+            font-size: 18px;
+            background-color: #8A2BE2;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .carta button:hover {
+            background-color: #6A1B9A;
+        }
+
+        /* Estilo para el corazón */
+        .corazon {
+            position: absolute;
+            font-size: 24px;
+            pointer-events: none;
+            animation: desaparecer 3s forwards;
+        }
+
+        @keyframes desaparecer {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="carta">
+        <h1>Para Ti, Mi Amor</h1>
+        <p>Querida Madecita,</p>
+        <p>
+            Hoy quiero expresarte cuánto significas para mí. Aquí una carta de cómo me enamoré de ti, unas flores amarillas
+            y unas cositas más que te daré apenas nos veamos.
+            ¡FELIZ DÍA DEL AMOR Y DE LAS FLORES AMARILLAS! Te amo.
+        </p>
+        <p>
+            Desde el dia que me escribiste por primera vez, me puse muy nervioso, ver que te tengo ahora como mi novia es un orgullo,
+            enamorarme de ti fue realmente muy sencillo, eres una chica maravillosa, hermosa, simpática, amable, tierna, inteligente,
+            un buen sentido del humor, divertida y sobre todas cosas, tienes un corazón de oro, ver como la conversación fluía, los detalles,
+            la forma en que me miras, como me amas, como me besas, tu sonrisa, tus ojos, como tratas a mi familia y como ellos a ti me parece muy lindo,
+            nunca había sentido un amor tan lindo como contigo, me haces muy feliz, gracias por ser mi novia, ojala algún dia seas mi esposa.
+        </p>
+        <p>Con todo mi amor,</p>
+        <p>Jhoancito</p>
+        <button onclick="mostrarProyecto()">Descubrir la sorpresa</button>
+    </div>
+    
+    <script>
+        // Navegar al proyecto
+        function mostrarProyecto() {
+            window.location.href = 'esqueleto.html';
+        }
+
+        // Crear un corazón donde el usuario hace clic
+        document.addEventListener('click', function(event) {
+            if (event.target.tagName !== 'BUTTON') {
+                crearCorazon(event.clientX, event.clientY);
+            }
+        });
+
+        function crearCorazon(x, y) {
+            const corazon = document.createElement('div');
+            corazon.innerHTML = '❤️';
+            corazon.classList.add('corazon');
+            corazon.style.left = (x - 12) + 'px';  // Ajustado para centrar el corazón
+            corazon.style.top = (y - 12) + 'px';   // Ajustado para centrar el corazón
+            document.body.appendChild(corazon);
+
+            // Eliminar el corazón después de 3 segundos
+            setTimeout(() => {
+                corazon.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
